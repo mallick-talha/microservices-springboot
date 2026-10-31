@@ -1,0 +1,13 @@
+
+
+build:
+  version: "2.0"
+
+loans:
+  message: "Welcome to our cards related local prod-APIs "
+  contactDetails:
+    name: "Utsav Kumar - Developer"
+    email: "utsav22@eazybank.com"
+  onCallSupport:
+    - (412) 419-3491
+    - (915) 382-1932

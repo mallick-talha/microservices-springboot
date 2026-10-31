@@ -1,0 +1,12 @@
+
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to our cards related local prod-APIs "
+  contactDetails:
+    name: "Utsav Kumar - Developer"
+    email: "3c8d43babab32c7b9201c2e4dd57e24a1169d4e05f3d1290e13f1f80005d286dde414bd1e955df9671ed60a0efd35d76"
+  onCallSupport:
+    - (412) 419-3491
+    - (915) 382-1932

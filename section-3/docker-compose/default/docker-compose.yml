@@ -1,0 +1,75 @@
+services:
+  configserver:
+    image: "talhahelal171/configserver:s8"
+    container_name: configserver-ms
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+
+  eurekaserver:
+    image: "talhahelal171/eurekaserver:s8"
+    container_name: eurekaserver-ms
+    ports:
+      - "8070:8070"
+    healthcheck:
+      test: "curl --fail --silent localhost:8070/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+    depends_on:
+       configserver:
+          condition: service_healthy
+    environment:
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
+
+  accounts:
+    image: "talhahelal171/accounts:s8"
+    container_name: accounts-ms
+    ports:
+      - "8081:8081"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+  loans:
+    image: "talhahelal171/loans:s8"
+    container_name: loans-ms
+    ports:
+      - "8082:8082"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+  cards:
+    image: "talhahelal171/cards:s8"
+    container_name: cards-ms
+    ports:
+      - "8090:8090"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+networks:
+  talha:
+    driver: "bridge"

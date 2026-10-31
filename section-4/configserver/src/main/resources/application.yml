@@ -1,0 +1,44 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name : 
+      
+  profiles:
+    active:
+#      - native
+      - git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mallick-talha/springCloud-config.git
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+        #        native:
+#          search-locations:
+#            - "classpath:/config"\
+encrypt:
+  key: q7Kx9mP2vL8nR4sT1wZ6cH0jF3aB5dE9gN2uX8pQ4yM
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+

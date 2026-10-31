@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile:
+        - "qa"
+
+build:
+  version: "V2-qa"
+
+accounts:
+  message: "Welcome to our bank qa apis"
+  contactDetails:
+    name: "Altaf qamar"
+    email: "atltafmallick123@gmail.com"
+  onCallSupport:
+    -(124)555-1234
+    -(123)555-1235

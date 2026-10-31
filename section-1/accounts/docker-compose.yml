@@ -1,0 +1,40 @@
+services:
+  accounts:
+    image: "talhahelal171/accounts:s4"
+    container_name: accounts-ms
+    ports:
+      - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - talha
+
+  loans:
+    image: "talhahelal171/loans:s4"
+    container_name: loans-ms
+    ports:
+      - "8082:8082"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - talha
+
+  cards:
+    image: "talhahelal171/cards:s4"
+    container_name: cars-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - talha
+
+networks:
+  talha:
+    driver: "bridge"

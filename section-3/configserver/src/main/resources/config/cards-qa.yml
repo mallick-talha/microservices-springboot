@@ -1,0 +1,12 @@
+
+build:
+  version: "1.0"
+
+cards:
+  message: "Welcome to our cards related local qa-APIs "
+  contactDetails:
+    name: "Suman Kumar - Developer"
+    email: "Suman22@eazybank.com"
+  onCallSupport:
+    - (412) 419-3491
+    - (915) 382-1932

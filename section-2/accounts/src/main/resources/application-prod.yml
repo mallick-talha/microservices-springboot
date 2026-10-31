@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile:
+        - "prod"
+
+build:
+  version: "V2-Prod"
+
+accounts:
+  message: "Welcome to our bank prod apis"
+  contactDetails:
+    name: "Shaddain Sarfraz"
+    email: "shadainmallick123@gmail.com"
+  onCallSupport:
+    -(666)555-1234
+    -(666 )555-1235

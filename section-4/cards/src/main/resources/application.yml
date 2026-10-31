@@ -1,0 +1,29 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: cards
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/accountsdb
+    username: root
+    password: root
+
+  jpa:
+     show-sql: true
+
+  profiles:
+    active:
+      - "qa"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+  sql:
+    init:
+      mode: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
